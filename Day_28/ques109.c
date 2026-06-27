@@ -1,0 +1,5 @@
+#include <stdio.h>
+#include <string.h>
+int main(){typedef struct{int id;char title[80];char author[50];int avail;}Book;Book lib[]={{1,"Let Us C","Y.Kanetkar",1},{2,"C Programming","D.Ritchie",1},{3,"Data Structures","M.Weiss",0}};int n=3,ch,id;do{printf("\n1.View 2.Issue 3.Return 4.Exit\nChoice: ");scanf("%d",&ch);if(ch==1){printf("%-4s %-25s %-15s %-10s\n","ID","Title","Author","Status");for(int i=0;i<n;i++)printf("%-4d %-25s %-15s %-10s\n",lib[i].id,lib[i].title,lib[i].author,lib[i].avail?"Available":"Issued");}else if(ch==2){printf("Book ID: ");scanf("%d",&id);for(int i=0;i<n;i++)if(lib[i].id==id){if(lib[i].avail){lib[i].avail=0;printf("Issued!\n");}else printf("Not available!\n");}}else if(ch==3){printf("Book ID: ");scanf("%d",&id);for(int i=0;i<n;i++)if(lib[i].id==id){lib[i].avail=1;printf("Returned!\n");}}}while(ch!=4);
+return 0;
+}
