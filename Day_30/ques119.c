@@ -1,0 +1,7 @@
+#include <stdio.h>
+#include <string.h>
+int main(){char names[20][50],depts[20][30];int ids[20],cnt=0,ch;float sals[20];do{printf("\n1.Add 2.View 3.Search 4.Highest Salary 5.Exit\nChoice: ");scanf("%d",&ch);getchar();if(ch==1){ids[cnt]=cnt+1;printf("Name: ");fgets(names[cnt],50,stdin);names[cnt][strcspn(names[cnt],"\n")]='\0';printf("Dept: ");fgets(depts[cnt],30,stdin);depts[cnt][strcspn(depts[cnt],"\n")]='\0';printf("Salary: ");scanf("%f",&sals[cnt]);getchar();cnt++;printf("Added!\n");}else if(ch==2){printf("%-4s %-20s %-15s %-10s\n","ID","Name","Dept","Salary");for(int i=0;i<cnt;i++)printf("%-4d %-20s %-15s %-10.2f\n",ids[i],names[i],depts[i],sals[i]);}else if(ch==3){char k[50];printf("Search: ");fgets(k,50,stdin);k[strcspn(k,"\n")]='\0';for(int i=0;i<cnt;i++)if(strstr(names[i],k))printf("%d %s %s Rs%.2f\n",ids[i],names[i],depts[i],sals[i]);}else if(ch==4){int mx=0;for(int i=1;i<cnt;i++)if(sals[i]>sals[mx])mx=i;printf("Highest: %s Rs%.2f\n",names[mx],sals[mx]);}}while(ch!=5);}
+typedef struct{int id;char name[50];char dept[30];int age;float salary;char email[60];}Emp;
+void displayE(Emp e){printf("%-4d %-20s %-15s %-4d %-10.2f %s\n",e.id,e.name,e.dept,e.age,e.salary,e.email);
+return 0;
+}

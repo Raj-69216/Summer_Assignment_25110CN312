@@ -1,0 +1,5 @@
+#include <stdio.h>
+#include <string.h>
+int main(){char names[30][50];int rolls[30];float marks[30][5];int n;char*subs[]={"Math","Phy","Chem","Eng","CS"};printf("=== Student Record System ===\nStudents: ");scanf("%d",&n);getchar();for(int i=0;i<n;i++){printf("Name %d: ",i+1);fgets(names[i],50,stdin);names[i][strcspn(names[i],"\n")]='\0';printf("Roll: ");scanf("%d",&rolls[i]);for(int j=0;j<5;j++){printf("%s: ",subs[j]);scanf("%f",&marks[i][j]);}getchar();}printf("\n%-12s %-6s %-6s %-6s %-6s %-6s %-6s %-7s %s\n","Name","Roll","Math","Phy","Chem","Eng","CS","Total","Grade");for(int i=0;i<n;i++){float t=0;for(int j=0;j<5;j++)t+=marks[i][j];float avg=t/5;char*g=(avg>=90)?"A+":(avg>=75)?"A":(avg>=60)?"B":(avg>=45)?"C":"F";printf("%-12s %-6d %-6.0f %-6.0f %-6.0f %-6.0f %-6.0f %-7.0f %s\n",names[i],rolls[i],marks[i][0],marks[i][1],marks[i][2],marks[i][3],marks[i][4],t,g);}
+return 0;
+}
